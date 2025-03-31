@@ -1,22 +1,44 @@
 // Changelog
 //
 // 25-03-25:
-// - Remove gap-(--card-spacing) from <Card> and add mt-(--card-spacing) to <CardContent> and <CardFooter> instead,
-//   so a <Form> can include <CardContent> and <CardFooter> and this does not change the layout spacing.
+// - Remove gap-(--card-spacing) from <Card> and add mt-(--card-spacing) to <CardContent> and
+//   <CardFooter> instead, so a <Form> can include <CardContent> and <CardFooter> and this does
+//   not change the layout spacing.
+// - Add ypadding to configure top and bottom space of a card
 
 import { twMerge } from "tailwind-merge";
+import { tv, type VariantProps } from "tailwind-variants";
 
-const Card = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => {
+const cardStyles = tv({
+  base: [
+    "group/card flex flex-col rounded-3xl border bg-bg  text-fg shadow-xs [--card-spacing:theme(spacing.6)] has-[table]:overflow-hidden **:data-[slot=table-header]:bg-muted/50 **:[table]:overflow-hidden",
+  ],
+  variants: {
+    ypadding: {
+      sm: "py-[calc(var(--card-spacing)*0.8)]",
+      md: "py-(--card-spacing)",
+      lg: "py-[calc(var(--card-spacing)*1.2)]",
+      xl: "py-[calc(var(--card-spacing)*1.4)]",
+      "2xl": "py-[calc(var(--card-spacing)*1.6)]",
+      "3xl": "py-[calc(var(--card-spacing)*1.8)]",
+    },
+  },
+  defaultVariants: {
+    ypadding: "md",
+  },
+});
+
+const a = cardStyles({});
+
+interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardStyles> {}
+
+const Card = ({ className, ypadding, ...props }: CardProps) => {
   return (
     <div
       data-slot="card"
-      className={twMerge(
-        "group/card flex flex-col  rounded-lg border bg-bg py-(--card-spacing) text-fg shadow-xs [--card-spacing:theme(spacing.6)] has-[table]:overflow-hidden **:data-[slot=table-header]:bg-muted/50 **:[table]:overflow-hidden",
-        className
-      )}
+      className={twMerge(className, cardStyles({ ypadding }))}
       {...props}
     />
   );

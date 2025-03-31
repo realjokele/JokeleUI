@@ -12,6 +12,8 @@
   --color-bg: var(--bg);
   --color-fg: var(--fg);
 
+  --color-desktop: var(--desktop);
+
   --color-primary: var(--primary);
   --color-primary-fg: var(--primary-fg);
 
@@ -51,6 +53,8 @@
 
 @layer base {
   :root {
+    --desktop: #eeeeef;
+
     --bg: oklch(0.985 0 0);
     --fg: oklch(0.141 0.005 285.823);
 
@@ -164,7 +168,7 @@
   }
 
   body {
-    @apply bg-bg text-fg;
+    @apply bg-desktop text-fg;
   }
 
   /* dark mode */

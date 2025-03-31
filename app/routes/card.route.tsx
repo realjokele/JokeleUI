@@ -24,7 +24,7 @@ export default function CardPage() {
 
       <div>
         <div className="text-lg font-bold w-full text-center">Card</div>
-        <Card className="mx-auto w-full max-w-lg">
+        <Card className="mx-auto w-full max-w-lg" ypadding="lg">
           <CardHeader>
             <CardTitle>Monthly Report</CardTitle>
             <CardDescription>Financial summary for June</CardDescription>
@@ -43,7 +43,7 @@ export default function CardPage() {
         <div className="text-xl font-bold w-full text-center">
           Card with Form
         </div>
-        <Card className="mx-auto w-full max-w-md">
+        <Card className="mx-auto w-full max-w-md" ypadding="2xl">
           <CardHeader>
             <CardTitle>Login</CardTitle>
             <CardDescription>
@@ -82,7 +82,7 @@ export default function CardPage() {
         <div className="text-xl font-bold w-full text-center">
           Card with Action
         </div>
-        <Card className="mx-auto w-full max-w-md">
+        <Card className="mx-auto w-full max-w-md" ypadding="md">
           <CardHeader>
             <CardTitle>Customers</CardTitle>
             <CardDescription>
@@ -108,7 +108,7 @@ export default function CardPage() {
         <div className="text-xl font-bold w-full text-center">
           Card with Table
         </div>
-        <Card className="mx-auto w-full max-w-[800px]">
+        <Card className="mx-auto w-full max-w-[800px]" ypadding="xl">
           <Card.Header>
             <Card.Title>Users</Card.Title>
             <Card.Description>
