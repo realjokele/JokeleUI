@@ -1,5 +1,6 @@
 // Changelog
 // 2025-03-29: Changed the button styles
+// 2025-04-01: Imporoved button color styles
 
 import {
   Button as ButtonPrimitive,
@@ -27,10 +28,20 @@ const buttonStyles = tv({
         "hover:inset-ring-(--color-button-secondary-fg)/85 hover:text-(--color-button-secondary-fg)/85",
       ],
       warning: [
-        "outline-warning [--btn-bg:theme(--color-warning/95%)] [--btn-fg:var(--color-warning-fg)] [--btn-overlay:var(--color-warning)]",
+        "outline-warning [--btn-bg:theme(--color-warning)] [--btn-fg:var(--color-warning-fg)] [--btn-overlay:theme(--color-warning/85%)]",
+      ],
+      "secondary-warning": [
+        "outline-primary [--btn-bg:theme(--color-button-warning-secondary)] [--btn-fg:var(--color-button-warning-secondary-fg)] [--btn-overlay:theme(--color-button-warning-secondary/90%)]",
+        "[--inset-ring:theme(--color-button-warning-secondary-fg)]",
+        "hover:inset-ring-(--color-button-warning-secondary-fg)/85 hover:text-(--color-button-warning-secondary-fg)/85",
       ],
       danger: [
-        "outline-danger [--btn-bg:theme(--color-danger/95%)] [--btn-fg:var(--color-danger-fg)] [--btn-overlay:var(--color-danger)]",
+        "outline-danger [--btn-bg:theme(--color-danger)] [--btn-fg:var(--color-danger-fg)] [--btn-overlay:theme(--color-danger/80%)]",
+      ],
+      "secondary-danger": [
+        "outline-primary [--btn-bg:theme(--color-button-danger-secondary)] [--btn-fg:var(--color-button-danger-secondary-fg)] [--btn-overlay:theme(--color-button-danger-secondary/90%)]",
+        "[--inset-ring:theme(--color-button-danger-secondary-fg)]",
+        "hover:inset-ring-(--color-button-danger-secondary-fg)/85 hover:text-(--color-button-danger-secondary-fg)/85",
       ],
       outline: [
         "outline-primary hover:ring-primary/20 shadow-none [--btn-fg:var(--color-fg)]",
@@ -68,7 +79,15 @@ const buttonStyles = tv({
 });
 
 interface ButtonProps extends ButtonPrimitiveProps {
-  intent?: "primary" | "secondary" | "danger" | "warning" | "outline" | "plain";
+  intent?:
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "secondary-danger"
+    | "warning"
+    | "secondary-warning"
+    | "outline"
+    | "plain";
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small";
   shape?: "square" | "circle";
   ref?: React.Ref<HTMLButtonElement>;

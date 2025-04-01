@@ -23,6 +23,12 @@
   --color-button-secondary: var(--secondary);
   --color-button-secondary-fg: var(--primary);
 
+  --color-button-warning-secondary: var(--secondary);
+  --color-button-warning-secondary-fg: var(--fg);
+
+  --color-button-danger-secondary: var(--secondary);
+  --color-button-danger-secondary-fg: var(--fg);
+
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
 

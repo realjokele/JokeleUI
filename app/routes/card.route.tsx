@@ -24,7 +24,7 @@ export default function CardPage() {
 
       <div>
         <div className="text-lg font-bold w-full text-center">Card</div>
-        <Card className="mx-auto w-full max-w-lg" ypadding="lg">
+        <Card className="mx-auto w-full max-w-lg" py="lg">
           <CardHeader>
             <CardTitle>Monthly Report</CardTitle>
             <CardDescription>Financial summary for June</CardDescription>
@@ -41,10 +41,46 @@ export default function CardPage() {
       </div>
 
       <div>
+        <div className="text-lg font-bold w-full text-center">Card Warning</div>
+        <Card className="mx-auto w-full max-w-lg" py="lg">
+          <CardHeader>
+            <CardTitle>Monthly Report</CardTitle>
+            <CardDescription>Financial summary for June</CardDescription>
+          </CardHeader>
+          <CardContent>
+            The monthly financial report shows a 15% increase in revenue
+            compared to last month.
+          </CardContent>
+          <CardFooter className="flex gap-4">
+            <Button intent="warning">View Details</Button>
+            <Button intent="secondary-warning">View Details</Button>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div>
+        <div className="text-lg font-bold w-full text-center">Card Danger</div>
+        <Card className="mx-auto w-full max-w-lg" py="lg">
+          <CardHeader>
+            <CardTitle>Monthly Report</CardTitle>
+            <CardDescription>Financial summary for June</CardDescription>
+          </CardHeader>
+          <CardContent>
+            The monthly financial report shows a 15% increase in revenue
+            compared to last month.
+          </CardContent>
+          <CardFooter className="flex gap-4">
+            <Button intent="danger">View Details</Button>
+            <Button intent="secondary-danger">View Details</Button>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div>
         <div className="text-xl font-bold w-full text-center">
           Card with Form
         </div>
-        <Card className="mx-auto w-full max-w-md" ypadding="2xl">
+        <Card className="mx-auto w-full max-w-md" py="2xl">
           <CardHeader>
             <CardTitle>Login</CardTitle>
             <CardDescription>
@@ -83,7 +119,7 @@ export default function CardPage() {
         <div className="text-xl font-bold w-full text-center">
           Card with Action
         </div>
-        <Card className="mx-auto w-full max-w-md" ypadding="md">
+        <Card className="mx-auto w-full max-w-md" py="md">
           <CardHeader>
             <CardTitle>Customers</CardTitle>
             <CardDescription>
@@ -109,7 +145,7 @@ export default function CardPage() {
         <div className="text-xl font-bold w-full text-center">
           Card with Table
         </div>
-        <Card className="mx-auto w-full max-w-[800px]" ypadding="xl">
+        <Card className="mx-auto w-full max-w-[800px]" py="xl">
           <Card.Header>
             <Card.Title>Users</Card.Title>
             <Card.Description>
