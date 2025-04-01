@@ -1,21 +1,15 @@
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "#/components/ui/card";
-import { Button } from "#/components/ui/button";
-import { TextField } from "#/components/ui/textfield";
-import { Checkbox } from "#/components/ui/checkbox";
-import { Link } from "#/components/ui/link";
-import { Form } from "react-router";
-import { Menu } from "#/components/ui/menu";
-import { Icon } from "#/components/Icon";
-import { Table } from "#/components/Table";
-import { Pagination } from "#/components/ui/pagination";
+import { Form } from "react-router"
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "#/components/ui/card"
+
+import { Button } from "#/components/ui/button"
+import { TextField } from "#/components/ui/textfield"
+import { Checkbox } from "#/components/ui/checkbox"
+import { Link } from "#/components/ui/link"
+
+import { Menu } from "#/components/ui/menu"
+import { Icon } from "#/components/Icon"
+import { Table } from "#/components/Table"
+import { Pagination } from "#/components/ui/pagination"
 
 export default function CardPage() {
   return (
@@ -30,12 +24,11 @@ export default function CardPage() {
             <CardDescription>Financial summary for June</CardDescription>
           </CardHeader>
           <CardContent>
-            The monthly financial report shows a 15% increase in revenue
-            compared to last month.
+            The monthly financial report shows a 15% increase in revenue compared to last month.
           </CardContent>
           <CardFooter className="flex gap-4">
             <Button>View Details</Button>
-            <Button intent="secondary">View Details</Button>
+            <Button intent="secondary">Abbrechen</Button>
           </CardFooter>
         </Card>
       </div>
@@ -48,8 +41,7 @@ export default function CardPage() {
             <CardDescription>Financial summary for June</CardDescription>
           </CardHeader>
           <CardContent>
-            The monthly financial report shows a 15% increase in revenue
-            compared to last month.
+            The monthly financial report shows a 15% increase in revenue compared to last month.
           </CardContent>
           <CardFooter className="flex gap-4">
             <Button intent="warning">View Details</Button>
@@ -66,41 +58,26 @@ export default function CardPage() {
             <CardDescription>Financial summary for June</CardDescription>
           </CardHeader>
           <CardContent>
-            The monthly financial report shows a 15% increase in revenue
-            compared to last month.
+            The monthly financial report shows a 15% increase in revenue compared to last month.
           </CardContent>
           <CardFooter className="flex gap-4">
-            <Button intent="danger">View Details</Button>
-            <Button intent="secondary-danger">View Details</Button>
+            <Button intent="danger">Report löschen</Button>
+            <Button intent="secondary-danger">Abbrechen</Button>
           </CardFooter>
         </Card>
       </div>
 
       <div>
-        <div className="text-xl font-bold w-full text-center">
-          Card with Form
-        </div>
+        <div className="text-xl font-bold w-full text-center">Card with Form</div>
         <Card className="mx-auto w-full max-w-md" py="2xl">
           <CardHeader>
             <CardTitle>Login</CardTitle>
-            <CardDescription>
-              Don't loose the level, just keep on going.
-            </CardDescription>
+            <CardDescription>Don't loose the level, just keep on going.</CardDescription>
           </CardHeader>
           <Form>
             <CardContent className="space-y-6">
-              <TextField
-                isRequired
-                label="Email"
-                placeholder="Enter your email"
-              />
-              <TextField
-                isRequired
-                label="Password"
-                isRevealable
-                type="password"
-                placeholder="Enter your password"
-              />
+              <TextField isRequired label="Email" placeholder="Enter your email" />
+              <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
               <div className="flex items-center justify-between">
                 <Checkbox>Remember me</Checkbox>
                 <Link className="text-sm" to="#">
@@ -116,15 +93,12 @@ export default function CardPage() {
       </div>
 
       <div>
-        <div className="text-xl font-bold w-full text-center">
-          Card with Action
-        </div>
+        <div className="text-xl font-bold w-full text-center">Card with Action</div>
         <Card className="mx-auto w-full max-w-md" py="md">
           <CardHeader>
             <CardTitle>Customers</CardTitle>
             <CardDescription>
-              Manage and view customer details with available actions aligned to
-              the right.
+              Manage and view customer details with available actions aligned to the right.
             </CardDescription>
             <CardAction>
               <Menu>
@@ -142,15 +116,11 @@ export default function CardPage() {
       </div>
 
       <div>
-        <div className="text-xl font-bold w-full text-center">
-          Card with Table
-        </div>
+        <div className="text-xl font-bold w-full text-center">Card with Table</div>
         <Card className="mx-auto w-full max-w-[800px]" py="xl">
           <Card.Header>
             <Card.Title>Users</Card.Title>
-            <Card.Description>
-              Manage users, groups, and roles.
-            </Card.Description>
+            <Card.Description>Manage users, groups, and roles.</Card.Description>
           </Card.Header>
           <Card.Content>
             <Table aria-label="Users">
@@ -172,16 +142,12 @@ export default function CardPage() {
                     <Table.Cell>{item.occupation}</Table.Cell>
                     <Table.Cell className="flex justify-end">
                       <Menu>
-                        <Menu.Trigger>
-                          {/* <IconDotsVertical /> */}
-                        </Menu.Trigger>
+                        <Menu.Trigger>{/* <IconDotsVertical /> */}</Menu.Trigger>
                         <Menu.Content placement="left top">
                           <Menu.Item>{/* <IconEye /> View */}</Menu.Item>
                           <Menu.Item>{/* <IconHighlight /> Edit */}</Menu.Item>
                           <Menu.Separator />
-                          <Menu.Item isDanger>
-                            {/* <IconTrash /> Delete */}
-                          </Menu.Item>
+                          <Menu.Item isDanger>{/* <IconTrash /> Delete */}</Menu.Item>
                         </Menu.Content>
                       </Menu>
                     </Table.Cell>
@@ -204,11 +170,7 @@ export default function CardPage() {
                 </Pagination.Section>
                 <Pagination.Section className="hidden lg:flex" items={pages}>
                   {(item) => (
-                    <Pagination.Item
-                      id={item.value.toString()}
-                      isCurrent={item.value === 4}
-                      href="#"
-                    >
+                    <Pagination.Item id={item.value.toString()} isCurrent={item.value === 4} href="#">
                       {item.value}
                     </Pagination.Item>
                   )}
@@ -221,7 +183,7 @@ export default function CardPage() {
         </Card>
       </div>
     </div>
-  );
+  )
 }
 
 const users = [
@@ -295,7 +257,7 @@ const users = [
     age: 26,
     occupation: "Writer",
   },
-];
+]
 const pages = Array.from({ length: users.length / 2 }, (_, i) => ({
   value: i + 1,
-}));
+}))
