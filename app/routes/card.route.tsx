@@ -33,8 +33,9 @@ export default function CardPage() {
             The monthly financial report shows a 15% increase in revenue
             compared to last month.
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex gap-4">
             <Button>View Details</Button>
+            <Button intent="secondary">View Details</Button>
           </CardFooter>
         </Card>
       </div>

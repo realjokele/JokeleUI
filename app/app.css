@@ -20,6 +20,9 @@
   --color-secondary: var(--secondary);
   --color-secondary-fg: var(--secondary-fg);
 
+  --color-button-secondary: var(--secondary);
+  --color-button-secondary-fg: var(--primary);
+
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
 
@@ -61,7 +64,7 @@
     --primary: oklch(0.546 0.245 262.881);
     --primary-fg: oklch(1 0 0);
 
-    --secondary: oklch(0.92 0.004 286.32);
+    --secondary: oklch(0.985 0 0);
     --secondary-fg: oklch(0.141 0.005 285.823);
 
     --overlay: oklch(1 0 0);
