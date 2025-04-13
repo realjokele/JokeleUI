@@ -24,50 +24,35 @@ import { Icon } from '../Icon'
 
 const intents = {
   primary: {
-    base: [
-      badgeIntents.primary,
-      '**:[[slot=remove]]:hover:bg-primary **:[[slot=remove]]:hover:text-primary-fg',
-    ],
+    base: [badgeIntents.primary, '**:[[slot=remove]]:hover:bg-primary **:[[slot=remove]]:hover:text-primary-fg'],
     selected: [
       'bg-primary dark:hover:bg-primary dark:bg-primary hover:bg-primary text-primary-fg dark:text-primary-fg hover:text-primary-fg',
       '**:[[slot=remove]]:hover:bg-primary-fg/50 **:[[slot=remove]]:hover:text-primary',
     ],
   },
   secondary: {
-    base: [
-      badgeIntents.secondary,
-      '**:[[slot=remove]]:hover:bg-fg **:[[slot=remove]]:hover:text-bg',
-    ],
+    base: [badgeIntents.secondary, '**:[[slot=remove]]:hover:bg-fg **:[[slot=remove]]:hover:text-bg'],
     selected: [
       'bg-fg text-bg dark:bg-fg/90 dark:text-secondary',
       '**:[[slot=remove]]:hover:bg-secondary/30 **:[[slot=remove]]:hover:text-secondary',
     ],
   },
   success: {
-    base: [
-      badgeIntents.success,
-      '**:[[slot=remove]]:hover:bg-success **:[[slot=remove]]:hover:text-success-fg',
-    ],
+    base: [badgeIntents.success, '**:[[slot=remove]]:hover:bg-success **:[[slot=remove]]:hover:text-success-fg'],
     selected: [
       'bg-success dark:bg-success dark:text-success-fg dark:hover:bg-success hover:bg-success text-success-fg hover:text-success-fg',
       '**:[[slot=remove]]:hover:bg-success-fg/30 **:[[slot=remove]]:hover:text-success-fg',
     ],
   },
   warning: {
-    base: [
-      badgeIntents.warning,
-      '**:[[slot=remove]]:hover:bg-warning **:[[slot=remove]]:hover:text-warning-fg',
-    ],
+    base: [badgeIntents.warning, '**:[[slot=remove]]:hover:bg-warning **:[[slot=remove]]:hover:text-warning-fg'],
     selected: [
       'bg-warning dark:hover:bg-warning dark:bg-warning dark:text-bg hover:bg-warning text-warning-fg hover:text-warning-fg',
       '**:[[slot=remove]]:hover:bg-warning-fg/30 **:[[slot=remove]]:hover:text-warning-fg',
     ],
   },
   danger: {
-    base: [
-      badgeIntents.danger,
-      '**:[[slot=remove]]:hover:bg-danger **:[[slot=remove]]:hover:text-danger-fg',
-    ],
+    base: [badgeIntents.danger, '**:[[slot=remove]]:hover:bg-danger **:[[slot=remove]]:hover:text-danger-fg'],
     selected: [
       'bg-danger dark:bg-danger dark:hover:bg-danger/90 hover:bg-danger text-danger-fg hover:text-danger-fg',
       '**:[[slot=remove]]:hover:bg-danger-fg/30 **:[[slot=remove]]:hover:text-danger-fg',
@@ -102,11 +87,7 @@ interface TagGroupProps extends TagGroupPrimitiveProps {
 
 const TagGroup = ({ children, ref, className, ...props }: TagGroupProps) => {
   return (
-    <TagGroupPrimitive
-      ref={ref}
-      className={twMerge('flex flex-col flex-wrap', className)}
-      {...props}
-    >
+    <TagGroupPrimitive ref={ref} className={twMerge('flex flex-col flex-wrap', className)} {...props}>
       <TagGroupContext.Provider
         value={{
           intent: props.intent || 'primary',
@@ -122,12 +103,7 @@ const TagGroup = ({ children, ref, className, ...props }: TagGroupProps) => {
 }
 
 const TagList = <T extends object>({ className, ...props }: TagListProps<T>) => {
-  return (
-    <TagListPrimitive
-      {...props}
-      className={composeTailwindRenderProps(className, 'flex flex-wrap gap-1.5')}
-    />
-  )
+  return <TagListPrimitive {...props} className={composeTailwindRenderProps(className, 'flex flex-wrap gap-1.5')} />
 }
 
 const tagStyles = tv({

@@ -7,20 +7,9 @@ import type {
   SelectProps as SelectPrimitiveProps,
   ValidationResult,
 } from 'react-aria-components'
-import {
-  Button,
-  Select as SelectPrimitive,
-  SelectValue,
-  composeRenderProps,
-} from 'react-aria-components'
+import { Button, Select as SelectPrimitive, SelectValue, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import {
-  DropdownItem,
-  DropdownItemDetails,
-  DropdownLabel,
-  DropdownSection,
-  DropdownSeparator,
-} from './dropdown'
+import { DropdownItem, DropdownItemDetails, DropdownLabel, DropdownSection, DropdownSeparator } from './dropdown'
 import { Description, FieldError, Label } from './field'
 import { ListBox } from './list-box'
 import { PopoverContent, type PopoverContentProps } from './popover'
@@ -49,13 +38,7 @@ interface SelectProps<T extends object> extends SelectPrimitiveProps<T> {
   className?: string
 }
 
-const Select = <T extends object>({
-  label,
-  description,
-  errorMessage,
-  className,
-  ...props
-}: SelectProps<T>) => {
+const Select = <T extends object>({ label, description, errorMessage, className, ...props }: SelectProps<T>) => {
   return (
     <SelectPrimitive
       {...props}
@@ -119,7 +102,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
         selectTriggerStyles({
           ...renderProps,
           className,
-        }),
+        })
       )}
     >
       {props.prefix && <span className="-mr-1">{props.prefix}</span>}

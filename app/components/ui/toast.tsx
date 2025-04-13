@@ -1,10 +1,5 @@
 import * as React from 'react'
-import {
-  useToastRegion,
-  useToast,
-  type AriaToastRegionProps,
-  type AriaToastProps,
-} from '@react-aria/toast'
+import { useToastRegion, useToast, type AriaToastRegionProps, type AriaToastProps } from '@react-aria/toast'
 import { type ToastState, ToastQueue, useToastQueue } from '@react-stately/toast'
 
 import { Button } from './button'
@@ -41,11 +36,7 @@ function ToastRegion<T extends React.ReactNode>({ state, ...props }: ToastRegion
   const { regionProps } = useToastRegion(props, state, ref)
 
   return (
-    <div
-      {...regionProps}
-      ref={ref}
-      className="toast-region fixed right-4 bottom-4 flex flex-col gap-2"
-    >
+    <div {...regionProps} ref={ref} className="toast-region fixed right-4 bottom-4 flex flex-col gap-2">
       {state.visibleToasts.map((toast) => (
         <Toast key={toast.key} toast={toast} state={state} />
       ))}

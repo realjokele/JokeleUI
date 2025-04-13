@@ -1,12 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import type { HeadingProps } from 'react-aria-components'
-import {
-  Button as ButtonPrimitive,
-  Dialog as DialogPrimitive,
-  Heading,
-  Text,
-} from 'react-aria-components'
+import { Button as ButtonPrimitive, Dialog as DialogPrimitive, Heading, Text } from 'react-aria-components'
 
 import { composeTailwindRenderProps } from '#/components/ui/primitive'
 import { useMediaQuery } from '#/hooks/use-media-query'
@@ -14,26 +9,20 @@ import { twJoin, twMerge } from 'tailwind-merge'
 import { Button, type ButtonProps } from './button'
 import { Icon } from '../Icon'
 
-const Dialog = ({
-  role = 'dialog',
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive>) => {
+const Dialog = ({ role = 'dialog', className, ...props }: React.ComponentProps<typeof DialogPrimitive>) => {
   return (
     <DialogPrimitive
       role={role}
       className={twMerge(
         'peer/dialog group/dialog relative flex max-h-[inherit] flex-col overflow-hidden outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5',
-        className,
+        className
       )}
       {...props}
     />
   )
 }
 
-const Trigger = (props: React.ComponentProps<typeof ButtonPrimitive>) => (
-  <ButtonPrimitive {...props} />
-)
+const Trigger = (props: React.ComponentProps<typeof ButtonPrimitive>) => <ButtonPrimitive {...props} />
 
 type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string
@@ -51,10 +40,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        header.parentElement?.style.setProperty(
-          '--dialog-header-height',
-          `${entry.target.clientHeight}px`,
-        )
+        header.parentElement?.style.setProperty('--dialog-header-height', `${entry.target.clientHeight}px`)
       }
     })
 
@@ -68,7 +54,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
       ref={headerRef}
       className={twMerge(
         'relative flex flex-col gap-0.5 p-4 sm:gap-1 sm:p-6 [&[data-slot=dialog-header]:has(+[data-slot=dialog-footer])]:pb-0',
-        className,
+        className
       )}
     >
       {props.title && <Title>{props.title}</Title>}
@@ -93,9 +79,9 @@ const Title = ({ level = 2, className, ref, ...props }: DialogTitleProps) => (
         level === 1 && 'text-lg font-semibold sm:text-xl',
         level === 2 && 'text-lg font-semibold sm:text-xl',
         level === 3 && 'text-base font-semibold sm:text-lg',
-        level === 4 && 'text-base font-semibold',
+        level === 4 && 'text-base font-semibold'
       ),
-      className,
+      className
     )}
     {...props}
   />
@@ -103,12 +89,7 @@ const Title = ({ level = 2, className, ref, ...props }: DialogTitleProps) => (
 
 type DialogDescriptionProps = React.ComponentProps<'div'>
 const Description = ({ className, ref, ...props }: DialogDescriptionProps) => (
-  <Text
-    slot="description"
-    className={twMerge('text-muted-fg text-sm', className)}
-    ref={ref}
-    {...props}
-  />
+  <Text slot="description" className={twMerge('text-muted-fg text-sm', className)} ref={ref} {...props} />
 )
 
 type DialogBodyProps = React.ComponentProps<'div'>
@@ -118,7 +99,7 @@ const Body = ({ className, ref, ...props }: DialogBodyProps) => (
     ref={ref}
     className={twMerge(
       'isolate flex max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))] flex-1 flex-col overflow-auto px-4 py-1 sm:px-6',
-      className,
+      className
     )}
     {...props}
   />
@@ -137,10 +118,7 @@ const Footer = ({ className, ...props }: DialogFooterProps) => {
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        footer.parentElement?.style.setProperty(
-          '--dialog-footer-height',
-          `${entry.target.clientHeight}px`,
-        )
+        footer.parentElement?.style.setProperty('--dialog-footer-height', `${entry.target.clientHeight}px`)
       }
     })
 
@@ -155,7 +133,7 @@ const Footer = ({ className, ...props }: DialogFooterProps) => {
       data-slot="dialog-footer"
       className={twMerge(
         'isolate mt-auto flex flex-col-reverse justify-between gap-3 p-4 pt-3 sm:flex-row sm:p-6 sm:pt-5',
-        className,
+        className
       )}
       {...props}
     />
@@ -188,7 +166,7 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
       slot="close"
       className={composeTailwindRenderProps(
         className,
-        'close hover:bg-secondary focus:bg-secondary focus-visible:ring-primary absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl focus:outline-hidden focus-visible:ring-1 sm:top-2 sm:right-2 sm:size-7 sm:rounded-md',
+        'close hover:bg-secondary focus:bg-secondary focus-visible:ring-primary absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl focus:outline-hidden focus-visible:ring-1 sm:top-2 sm:right-2 sm:size-7 sm:rounded-md'
       )}
     >
       <Icon name="x" className="size-4" />

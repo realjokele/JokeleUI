@@ -15,12 +15,7 @@ const ProgressCircle = ({ className, ref, ...props }: ProgressCircleProps) => {
   return (
     <ProgressBar {...props} ref={ref}>
       {({ percentage, isIndeterminate }) => (
-        <svg
-          className={twMerge('size-4 shrink-0', className)}
-          viewBox="0 0 24 24"
-          fill="none"
-          data-slot="icon"
-        >
+        <svg className={twMerge('size-4 shrink-0', className)} viewBox="0 0 24 24" fill="none" data-slot="icon">
           <circle cx={c} cy={c} r={r} strokeWidth={3} stroke="currentColor" strokeOpacity={0.25} />
           {!isIndeterminate ? (
             <circle

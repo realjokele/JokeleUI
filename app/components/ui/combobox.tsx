@@ -1,32 +1,31 @@
-import React from "react";
+import React from 'react'
 
 import type {
   ComboBoxProps as ComboboxPrimitiveProps,
   InputProps,
   ListBoxProps,
   ValidationResult,
-} from "react-aria-components";
+} from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
   ComboBoxContext,
   ComboBoxStateContext,
   ComboBox as ComboboxPrimitive,
   useSlottedContext,
-} from "react-aria-components";
-import { Button } from "./button";
-import { DropdownItem, DropdownLabel, DropdownSection } from "./dropdown";
-import { Description, FieldError, FieldGroup, Input, Label } from "./field";
-import { ListBox } from "./list-box";
-import { PopoverContent, type PopoverContentProps } from "./popover";
-import { composeTailwindRenderProps } from "./primitive";
-import { Icon } from "#/components/Icon";
-interface ComboBoxProps<T extends object>
-  extends Omit<ComboboxPrimitiveProps<T>, "children"> {
-  label?: string;
-  placeholder?: string;
-  description?: string | null;
-  errorMessage?: string | ((validation: ValidationResult) => string);
-  children: React.ReactNode;
+} from 'react-aria-components'
+import { Button } from './button'
+import { DropdownItem, DropdownLabel, DropdownSection } from './dropdown'
+import { Description, FieldError, FieldGroup, Input, Label } from './field'
+import { ListBox } from './list-box'
+import { PopoverContent, type PopoverContentProps } from './popover'
+import { composeTailwindRenderProps } from './primitive'
+import { Icon } from '#/components/Icon'
+interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
+  label?: string
+  placeholder?: string
+  description?: string | null
+  errorMessage?: string | ((validation: ValidationResult) => string)
+  children: React.ReactNode
 }
 
 const ComboBox = <T extends object>({
@@ -40,23 +39,20 @@ const ComboBox = <T extends object>({
   return (
     <ComboboxPrimitive
       {...props}
-      className={composeTailwindRenderProps(
-        className,
-        "group flex w-full flex-col gap-y-1.5"
-      )}
+      className={composeTailwindRenderProps(className, 'group flex w-full flex-col gap-y-1.5')}
     >
       {label && <Label>{label}</Label>}
       {children}
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </ComboboxPrimitive>
-  );
-};
+  )
+}
 
 interface ComboBoxListProps<T extends object>
-  extends Omit<ListBoxProps<T>, "layout" | "orientation">,
-    Pick<PopoverContentProps, "placement"> {
-  popoverClassName?: PopoverContentProps["className"];
+  extends Omit<ListBoxProps<T>, 'layout' | 'orientation'>,
+    Pick<PopoverContentProps, 'placement'> {
+  popoverClassName?: PopoverContentProps['className']
 }
 
 const ComboBoxList = <T extends object>({
@@ -71,17 +67,11 @@ const ComboBoxList = <T extends object>({
       showArrow={false}
       respectScreen={false}
       isNonModal
-      className={composeTailwindRenderProps(
-        popoverClassName,
-        "sm:min-w-(--trigger-width)"
-      )}
+      className={composeTailwindRenderProps(popoverClassName, 'sm:min-w-(--trigger-width)')}
       placement={props.placement}
     >
       <ListBox
-        className={composeTailwindRenderProps(
-          className,
-          "border-0 shadow-none"
-        )}
+        className={composeTailwindRenderProps(className, 'border-0 shadow-none')}
         layout="stack"
         orientation="vertical"
         items={items}
@@ -90,11 +80,11 @@ const ComboBoxList = <T extends object>({
         {children}
       </ListBox>
     </PopoverContent>
-  );
-};
+  )
+}
 
 const ComboBoxInput = (props: InputProps) => {
-  const context = useSlottedContext(ComboBoxContext)!;
+  const context = useSlottedContext(ComboBoxContext)!
   return (
     <FieldGroup className="relative pl-0">
       <Input {...props} placeholder={props?.placeholder} />
@@ -112,11 +102,11 @@ const ComboBoxInput = (props: InputProps) => {
       </Button>
       {context?.inputValue && <ComboBoxClearButton />}
     </FieldGroup>
-  );
-};
+  )
+}
 
 const ComboBoxClearButton = () => {
-  const state = React.use(ComboBoxStateContext);
+  const state = React.use(ComboBoxStateContext)
 
   return (
     <ButtonPrimitive
@@ -124,24 +114,24 @@ const ComboBoxClearButton = () => {
       slot={null}
       aria-label="Clear"
       onPress={() => {
-        state?.setSelectedKey(null);
-        state?.open();
+        state?.setSelectedKey(null)
+        state?.open()
       }}
     >
       <Icon name="x" className="animate-in size-4" />
     </ButtonPrimitive>
-  );
-};
+  )
+}
 
-const ComboBoxOption = DropdownItem;
-const ComboBoxLabel = DropdownLabel;
-const ComboBoxSection = DropdownSection;
+const ComboBoxOption = DropdownItem
+const ComboBoxLabel = DropdownLabel
+const ComboBoxSection = DropdownSection
 
-ComboBox.Input = ComboBoxInput;
-ComboBox.List = ComboBoxList;
-ComboBox.Option = ComboBoxOption;
-ComboBox.Label = ComboBoxLabel;
-ComboBox.Section = ComboBoxSection;
+ComboBox.Input = ComboBoxInput
+ComboBox.List = ComboBoxList
+ComboBox.Option = ComboBoxOption
+ComboBox.Label = ComboBoxLabel
+ComboBox.Section = ComboBoxSection
 
-export type { ComboBoxProps, ComboBoxListProps };
-export { ComboBox };
+export type { ComboBoxProps, ComboBoxListProps }
+export { ComboBox }

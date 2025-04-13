@@ -21,12 +21,7 @@ import { tv } from 'tailwind-variants'
 
 import { useMediaQuery } from '#/hooks/use-media-query'
 import { twMerge } from 'tailwind-merge'
-import type {
-  DialogBodyProps,
-  DialogFooterProps,
-  DialogHeaderProps,
-  DialogTitleProps,
-} from './dialog'
+import type { DialogBodyProps, DialogFooterProps, DialogHeaderProps, DialogTitleProps } from './dialog'
 import { Dialog } from './dialog'
 
 type PopoverProps = DialogTriggerProps
@@ -35,10 +30,7 @@ const Popover = (props: PopoverProps) => {
 }
 
 const PopoverTitle = ({ level = 2, className, ...props }: DialogTitleProps) => (
-  <Dialog.Title
-    className={twMerge('sm:leading-none', level === 2 && 'sm:text-lg', className)}
-    {...props}
-  />
+  <Dialog.Title className={twMerge('sm:leading-none', level === 2 && 'sm:text-lg', className)} {...props} />
 )
 
 const PopoverHeader = ({ className, ...props }: DialogHeaderProps) => (
@@ -137,7 +129,7 @@ const PopoverContent = ({
     >
       <Modal
         className={composeRenderProps(className, (className, renderProps) =>
-          drawer({ ...renderProps, isMenu, className }),
+          drawer({ ...renderProps, isMenu, className })
         )}
       >
         <Dialog role="dialog" aria-label={props['aria-label'] ?? 'List item'}>
@@ -152,7 +144,7 @@ const PopoverContent = ({
         content({
           ...renderProps,
           className,
-        }),
+        })
       )}
       {...props}
     >

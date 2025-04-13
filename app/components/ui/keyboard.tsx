@@ -17,7 +17,7 @@ const Keyboard = ({ keys, classNames, className, ...props }: KeyboardProps) => {
     <KeyboardPrimitive
       className={twMerge(
         'group-hover:text-fg group-focus:text-fg hidden text-current/70 group-focus:opacity-90 group-disabled:opacity-50 lg:inline-flex',
-        classNames?.base,
+        classNames?.base
       )}
       {...props}
     >
@@ -27,7 +27,7 @@ const Keyboard = ({ keys, classNames, className, ...props }: KeyboardProps) => {
           className={twMerge(
             'group-hover:text-fg group-focus:text-fg hidden text-current/70 group-focus:opacity-90 group-disabled:opacity-50 lg:inline-flex',
             index > 0 && char.length > 1 && 'pl-1',
-            classNames?.kbd,
+            classNames?.kbd
           )}
         >
           {char}

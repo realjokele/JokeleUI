@@ -1,10 +1,5 @@
 import type { DialogProps, DialogTriggerProps, ModalOverlayProps } from 'react-aria-components'
-import {
-  DialogTrigger,
-  ModalOverlay,
-  Modal as ModalPrimitive,
-  composeRenderProps,
-} from 'react-aria-components'
+import { DialogTrigger, ModalOverlay, Modal as ModalPrimitive, composeRenderProps } from 'react-aria-components'
 import { type VariantProps, tv } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
@@ -46,9 +41,7 @@ const modalContentStyles = tv({
       ],
     },
     isExiting: {
-      true: [
-        'slide-out-to-bottom sm:slide-out-to-bottom-0 sm:zoom-out-95 animate-out duration-150 ease-in',
-      ],
+      true: ['slide-out-to-bottom sm:slide-out-to-bottom-0 sm:zoom-out-95 animate-out duration-150 ease-in'],
     },
     size: {
       xs: 'sm:max-w-xs',
@@ -99,7 +92,7 @@ const Modal = ({
           ...renderProps,
           isBlurred,
           className,
-        }),
+        })
       )}
       {...props}
     >
@@ -110,7 +103,7 @@ const Modal = ({
             ...renderProps,
             size,
             className,
-          }),
+          })
         )}
         {...props}
       >
@@ -134,13 +127,4 @@ const ModalFooter = Dialog.Footer
 const ModalBody = Dialog.Body
 const ModalClose = Dialog.Close
 
-export {
-  ModalTrigger,
-  Modal,
-  ModalHeader,
-  ModalTitle,
-  ModalDescription,
-  ModalBody,
-  ModalFooter,
-  ModalClose,
-}
+export { ModalTrigger, Modal, ModalHeader, ModalTitle, ModalDescription, ModalBody, ModalFooter, ModalClose }

@@ -17,10 +17,7 @@ interface ProgressBarProps extends ProgressBarPrimitiveProps {
 
 const ProgressBar = ({ label, max, duration, className, ...props }: ProgressBarProps) => {
   return (
-    <ProgressBarPrimitive
-      {...props}
-      className={composeTailwindRenderProps(className, 'flex flex-col gap-1')}
-    >
+    <ProgressBarPrimitive {...props} className={composeTailwindRenderProps(className, 'flex flex-col gap-1')}>
       {({ percentage, valueText, isIndeterminate }) => (
         <>
           <div className="flex justify-between gap-2">

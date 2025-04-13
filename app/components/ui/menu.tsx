@@ -71,13 +71,11 @@ const MenuTrigger = ({ className, ref, ...props }: MenuTriggerProps) => (
     data-slot="menu-trigger"
     className={composeTailwindRenderProps(
       className,
-      'focus-visible:ring-primary relative inline text-left outline-hidden focus-visible:ring-1',
+      'focus-visible:ring-primary relative inline text-left outline-hidden focus-visible:ring-1'
     )}
     {...props}
   >
-    {(values) => (
-      <>{typeof props.children === 'function' ? props.children(values) : props.children}</>
-    )}
+    {(values) => <>{typeof props.children === 'function' ? props.children(values) : props.children}</>}
   </Button>
 )
 
@@ -119,16 +117,13 @@ const MenuContent = <T extends object>({
       crossOffset={props.crossOffset}
       triggerRef={props.triggerRef}
       arrowBoundaryOffset={props.arrowBoundaryOffset}
-      className={composeTailwindRenderProps(
-        popoverClassName,
-        'z-50 p-0 shadow-xs outline-hidden sm:min-w-40',
-      )}
+      className={composeTailwindRenderProps(popoverClassName, 'z-50 p-0 shadow-xs outline-hidden sm:min-w-40')}
     >
       <MenuPrimitive
         data-slot="menu-content"
         className={composeTailwindRenderProps(
           className,
-          "grid max-h-[calc(var(--visual-viewport-height)-10rem)] grid-cols-[auto_1fr] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))] sm:max-h-[inherit] *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1",
+          "grid max-h-[calc(var(--visual-viewport-height)-10rem)] grid-cols-[auto_1fr] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))] sm:max-h-[inherit] *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1"
         )}
         {...props}
       />
@@ -154,7 +149,7 @@ const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemP
                 className,
               ])
             : className,
-        }),
+        })
       )}
       textValue={textValue}
       data-danger={isDanger ? 'true' : undefined}
@@ -180,9 +175,7 @@ const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemP
 
           {typeof children === 'function' ? children(values) : children}
 
-          {values.hasSubmenu && (
-            <Icon name="chevron-right" data-slot="chevron" className="absolute right-2 size-3.5" />
-          )}
+          {values.hasSubmenu && <Icon name="chevron-right" data-slot="chevron" className="absolute right-2 size-3.5" />}
         </>
       )}
     </MenuItemPrimitive>
@@ -198,7 +191,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
     className={twMerge(
       'col-span-full px-2.5 py-2 text-base font-semibold sm:text-sm',
       separator && '-mx-1 mb-1 border-b sm:px-3 sm:pb-[0.625rem]',
-      className,
+      className
     )}
     {...props}
   />

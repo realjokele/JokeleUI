@@ -2,30 +2,19 @@
 // - 2025-03-29: Initial implementation
 //    - TypeScript error line 49
 
-import type {
-  ListBoxItemProps as ListBoxItemPrimitiveProps,
-  ListBoxProps,
-} from "react-aria-components";
+import type { ListBoxItemProps as ListBoxItemPrimitiveProps, ListBoxProps } from 'react-aria-components'
 import {
   ListBoxItem as ListBoxItemPrimitive,
   ListBox as ListBoxPrimitive,
   composeRenderProps,
-} from "react-aria-components";
+} from 'react-aria-components'
 
-import { composeTailwindRenderProps } from "./primitive";
-import { twMerge } from "tailwind-merge";
-import {
-  DropdownItemDetails,
-  DropdownLabel,
-  DropdownSection,
-  dropdownItemStyles,
-} from "./dropdown";
-import { Icon } from "../Icon";
+import { composeTailwindRenderProps } from './primitive'
+import { twMerge } from 'tailwind-merge'
+import { DropdownItemDetails, DropdownLabel, DropdownSection, dropdownItemStyles } from './dropdown'
+import { Icon } from '../Icon'
 
-const ListBox = <T extends object>({
-  className,
-  ...props
-}: ListBoxProps<T>) => (
+const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
   <ListBoxPrimitive
     {...props}
     className={composeTailwindRenderProps(
@@ -33,19 +22,14 @@ const ListBox = <T extends object>({
       "grid max-h-96 w-full min-w-56 grid-cols-[auto_1fr] flex-col gap-y-1 overflow-auto overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5 *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1"
     )}
   />
-);
+)
 
-interface ListBoxItemProps<T extends object>
-  extends ListBoxItemPrimitiveProps<T> {
-  className?: string;
+interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
+  className?: string
 }
 
-const ListBoxItem = <T extends object>({
-  children,
-  className,
-  ...props
-}: ListBoxItemProps<T>) => {
-  const textValue = typeof children === "string" ? children : undefined;
+const ListBoxItem = <T extends object>({ children, className, ...props }: ListBoxItemProps<T>) => {
+  const textValue = typeof children === 'string' ? children : undefined
 
   return (
     <ListBoxItemPrimitive
@@ -59,8 +43,7 @@ const ListBoxItem = <T extends object>({
       )}
     >
       {(renderProps) => {
-        const { allowsDragging, isSelected, isFocused, isDragging } =
-          renderProps;
+        const { allowsDragging, isSelected, isFocused, isDragging } = renderProps
 
         return (
           <>
@@ -68,49 +51,38 @@ const ListBoxItem = <T extends object>({
               <Icon
                 name="menu"
                 className={twMerge(
-                  "text-muted-fg size-4 shrink-0 transition",
-                  isFocused && "text-fg",
-                  isDragging && "text-fg",
-                  isSelected && "text-accent-fg/70"
+                  'text-muted-fg size-4 shrink-0 transition',
+                  isFocused && 'text-fg',
+                  isDragging && 'text-fg',
+                  isSelected && 'text-accent-fg/70'
                 )}
               />
             )}
-            {isSelected && (
-              <Icon
-                name="check"
-                className="-mx-0.5 mr-2"
-                data-slot="checked-icon"
-              />
-            )}
-            {typeof children === "function" ? (
+            {isSelected && <Icon name="check" className="-mx-0.5 mr-2" data-slot="checked-icon" />}
+            {typeof children === 'function' ? (
               children(renderProps)
-            ) : typeof children === "string" ? (
+            ) : typeof children === 'string' ? (
               <DropdownLabel>{children}</DropdownLabel>
             ) : (
               children
             )}
           </>
-        );
+        )
       }}
     </ListBoxItemPrimitive>
-  );
-};
+  )
+}
 
-type ListBoxSectionProps = React.ComponentProps<typeof DropdownSection>;
+type ListBoxSectionProps = React.ComponentProps<typeof DropdownSection>
 const ListBoxSection = ({ className, ...props }: ListBoxSectionProps) => {
-  return (
-    <DropdownSection
-      className={twMerge("gap-y-1 [&_.lbi:last-child]:-mb-1.5", className)}
-      {...props}
-    />
-  );
-};
+  return <DropdownSection className={twMerge('gap-y-1 [&_.lbi:last-child]:-mb-1.5', className)} {...props} />
+}
 
-const ListBoxItemDetails = DropdownItemDetails;
+const ListBoxItemDetails = DropdownItemDetails
 
-ListBox.Section = ListBoxSection;
-ListBox.ItemDetails = ListBoxItemDetails;
-ListBox.Item = ListBoxItem;
+ListBox.Section = ListBoxSection
+ListBox.ItemDetails = ListBoxItemDetails
+ListBox.Item = ListBoxItem
 
-export type { ListBoxItemProps, ListBoxSectionProps };
-export { ListBox };
+export type { ListBoxItemProps, ListBoxSectionProps }
+export { ListBox }

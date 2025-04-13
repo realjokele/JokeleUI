@@ -34,7 +34,7 @@ const Avatar = ({
         size === 'extra-large' && 'size-12 *:size-12',
         shape === 'square' && 'rounded-(--avatar-radius) *:rounded-(--avatar-radius)',
         shape === 'circle' && 'rounded-full *:rounded-full',
-        className,
+        className
       )}
     >
       {initials && (
@@ -42,16 +42,11 @@ const Avatar = ({
           className="size-full fill-current p-[5%] text-[48px] font-medium uppercase select-none"
           viewBox="0 0 100 100"
           aria-hidden={alt ? undefined : 'true'}
+          aria-label="avatar"
+          role="img"
         >
           {alt && <title>{alt}</title>}
-          <text
-            x="50%"
-            y="50%"
-            alignmentBaseline="middle"
-            dominantBaseline="middle"
-            textAnchor="middle"
-            dy=".125em"
-          >
+          <text x="50%" y="50%" alignmentBaseline="middle" dominantBaseline="middle" textAnchor="middle" dy=".125em">
             {initials}
           </text>
         </svg>

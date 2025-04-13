@@ -20,11 +20,7 @@ const Pagination = ({ className, ref, ...props }: PaginationProps) => (
 interface PaginationSectionProps<T> extends ListBoxSectionProps<T> {
   ref?: React.RefObject<HTMLElement>
 }
-const PaginationSection = <T extends object>({
-  className,
-  ref,
-  ...props
-}: PaginationSectionProps<T>) => (
+const PaginationSection = <T extends object>({ className, ref, ...props }: PaginationSectionProps<T>) => (
   <ListBoxSection ref={ref} {...props} className={twMerge('flex h-9 gap-[5px]', className)} />
 )
 
@@ -51,7 +47,7 @@ const renderListItem = (
     isDisabled?: boolean
     className?: string
   },
-  children: React.ReactNode,
+  children: React.ReactNode
 ) => <ListBoxItem {...props}>{children}</ListBoxItem>
 
 interface PaginationItemProps extends ListBoxItemProps {
@@ -74,11 +70,7 @@ const PaginationItem = ({
   ...props
 }: PaginationItemProps) => {
   const textValue =
-    typeof children === 'string'
-      ? children
-      : typeof children === 'number'
-        ? children.toString()
-        : undefined
+    typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
@@ -91,12 +83,12 @@ const PaginationItem = ({
           size: 'small',
           className: twMerge(
             'cursor-pointer font-normal text-fg focus-visible:border-primary focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20',
-            className,
+            className
           ),
         }),
         ...props,
       },
-      indicator,
+      indicator
     )
 
   switch (segment) {
@@ -107,7 +99,7 @@ const PaginationItem = ({
           className: twMerge('grid h-9 place-content-center px-3.5 tabular-nums', className),
           ...props,
         },
-        children,
+        children
       )
     case 'separator':
       return renderListItem(
@@ -116,10 +108,7 @@ const PaginationItem = ({
           className: twMerge('grid h-9 place-content-center', className),
           ...props,
         },
-        <Separator
-          orientation="vertical"
-          className="bg-secondary-fg/40 h-5 w-[1.5px] shrink-0 rotate-[14deg]"
-        />,
+        <Separator orientation="vertical" className="bg-secondary-fg/40 h-5 w-[1.5px] shrink-0 rotate-[14deg]" />
       )
     case 'ellipsis':
       return renderListItem(
@@ -127,13 +116,13 @@ const PaginationItem = ({
           textValue: 'More pages',
           className: twMerge(
             'flex size-9 items-center justify-center rounded-lg border border-transparent focus:outline-hidden focus-visible:border-primary focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20',
-            className,
+            className
           ),
           ...props,
         },
         <span aria-hidden className={twMerge('flex size-9 items-center justify-center', className)}>
           <Icon name="ellipsis" />
-        </span>,
+        </span>
       )
     case 'previous':
       return renderPaginationIndicator(<Icon name="chevron-left" />)
@@ -154,12 +143,12 @@ const PaginationItem = ({
             size,
             className: twMerge(
               'cursor-pointer font-normal tabular-nums disabled:cursor-default disabled:opacity-100 focus-visible:border-primary focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20',
-              className,
+              className
             ),
           }),
           ...props,
         },
-        children,
+        children
       )
   }
 }

@@ -64,11 +64,7 @@ const TextField = ({
             isInvalid={!!errorMessage}
             data-loading={isPending ? 'true' : undefined}
           >
-            {prefix && typeof prefix === 'string' ? (
-              <span className="text-muted-fg ml-2">{prefix}</span>
-            ) : (
-              prefix
-            )}
+            {prefix && typeof prefix === 'string' ? <span className="text-muted-fg ml-2">{prefix}</span> : prefix}
             <Input placeholder={placeholder} />
             {isRevealable ? (
               <ButtonPrimitive

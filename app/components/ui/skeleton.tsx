@@ -10,11 +10,7 @@ const Skeleton = ({ ref, soft = false, className, ...props }: SkeletonProps) => 
     <div
       data-slot="skeleton"
       ref={ref}
-      className={twMerge(
-        'shrink-0 animate-pulse rounded-lg',
-        soft ? 'bg-muted' : 'bg-secondary',
-        className,
-      )}
+      className={twMerge('shrink-0 animate-pulse rounded-lg', soft ? 'bg-muted' : 'bg-secondary', className)}
       {...props}
     />
   )

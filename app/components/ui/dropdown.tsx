@@ -1,12 +1,7 @@
 // Changelog:
 // - 2025-03-29: Initial implementation
 
-import type {
-  ListBoxItemProps,
-  SectionProps,
-  SeparatorProps,
-  TextProps,
-} from 'react-aria-components'
+import type { ListBoxItemProps, SectionProps, SeparatorProps, TextProps } from 'react-aria-components'
 import {
   Collection,
   Header,
@@ -79,7 +74,7 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
     <ListBoxItemPrimitive
       textValue={typeof props.children === 'string' ? props.children : props.textValue}
       className={composeRenderProps(className, (className, renderProps) =>
-        dropdownItemStyles({ ...renderProps, className }),
+        dropdownItemStyles({ ...renderProps, className })
       )}
       {...props}
     >
@@ -102,26 +97,13 @@ interface DropdownItemDetailProps extends TextProps {
   }
 }
 
-const DropdownItemDetails = ({
-  label,
-  description,
-  classNames,
-  ...props
-}: DropdownItemDetailProps) => {
+const DropdownItemDetails = ({ label, description, classNames, ...props }: DropdownItemDetailProps) => {
   const { slot, children, title, ...restProps } = props
 
   return (
-    <div
-      data-slot="dropdown-item-details"
-      className="col-start-2 flex flex-col gap-y-1"
-      {...restProps}
-    >
+    <div data-slot="dropdown-item-details" className="col-start-2 flex flex-col gap-y-1" {...restProps}>
       {label && (
-        <Text
-          slot={slot ?? 'label'}
-          className={twMerge('font-medium sm:text-sm', classNames?.label)}
-          {...restProps}
-        >
+        <Text slot={slot ?? 'label'} className={twMerge('font-medium sm:text-sm', classNames?.label)} {...restProps}>
           {label}
         </Text>
       )}

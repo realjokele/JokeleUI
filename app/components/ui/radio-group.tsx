@@ -20,14 +20,7 @@ interface RadioGroupProps extends Omit<RadioGroupPrimitiveProps, 'children'> {
   ref?: React.Ref<HTMLDivElement>
 }
 
-const RadioGroup = ({
-  label,
-  description,
-  errorMessage,
-  children,
-  ref,
-  ...props
-}: RadioGroupProps) => {
+const RadioGroup = ({ label, description, errorMessage, children, ref, ...props }: RadioGroupProps) => {
   return (
     <RadioGroupPrimitive
       ref={ref}
@@ -78,7 +71,7 @@ const Radio = ({ description, label, ref, className, ...props }: RadioProps) => 
       ref={ref}
       className={composeTailwindRenderProps(
         className,
-        'group text-fg disabled:text-fg/50 flex items-center gap-2 text-sm transition forced-colors:disabled:text-[GrayText]',
+        'group text-fg disabled:text-fg/50 flex items-center gap-2 text-sm transition forced-colors:disabled:text-[GrayText]'
       )}
       {...props}
     >

@@ -66,13 +66,7 @@ interface FieldErrorProps extends FieldErrorPrimitiveProps {
   ref?: React.RefObject<HTMLElement>
 }
 const FieldError = ({ className, ref, ...props }: FieldErrorProps) => {
-  return (
-    <FieldErrorPrimitive
-      ref={ref}
-      {...props}
-      className={composeTailwindRenderProps(className, fieldError())}
-    />
-  )
+  return <FieldErrorPrimitive ref={ref} {...props} className={composeTailwindRenderProps(className, fieldError())} />
 }
 
 const fieldGroupStyles = tv({
@@ -107,7 +101,7 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
         fieldGroupStyles({
           ...renderProps,
           className,
-        }),
+        })
       )}
     />
   )
@@ -122,7 +116,7 @@ const Input = ({ className, ref, ...props }: InputProps) => {
       {...props}
       className={composeTailwindRenderProps(
         className,
-        'text-fg placeholder-muted-fg w-full min-w-0 bg-transparent px-2.5 py-2 text-base outline-hidden data-focused:outline-hidden sm:text-sm/6 [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden',
+        'text-fg placeholder-muted-fg w-full min-w-0 bg-transparent px-2.5 py-2 text-base outline-hidden data-focused:outline-hidden sm:text-sm/6 [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden'
       )}
     />
   )

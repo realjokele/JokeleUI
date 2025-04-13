@@ -4,11 +4,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
 import { useFilter } from 'react-aria'
-import type {
-  ComboBoxProps as ComboBoxPrimitiveProps,
-  Key,
-  ValidationResult,
-} from 'react-aria-components'
+import type { ComboBoxProps as ComboBoxPrimitiveProps, Key, ValidationResult } from 'react-aria-components'
 import { ComboBox } from 'react-aria-components'
 import type { ListData } from 'react-stately'
 import { useListData } from 'react-stately'
@@ -78,7 +74,7 @@ const MultipleSelect = <T extends SelectedKey>({
     (item: T, filterText: string) => {
       return !selectedKeys.includes(item.id) && contains(item.name, filterText)
     },
-    [contains, selectedKeys],
+    [contains, selectedKeys]
   )
 
   const accessibleList = useListData({
@@ -106,7 +102,7 @@ const MultipleSelect = <T extends SelectedKey>({
         onItemCleared?.(key)
       }
     },
-    [selectedItems, onItemCleared],
+    [selectedItems, onItemCleared]
   )
 
   const onSelectionChange = (id: Key | null) => {
@@ -165,7 +161,7 @@ const MultipleSelect = <T extends SelectedKey>({
         popLast()
       }
     },
-    [popLast, fieldState.inputValue],
+    [popLast, fieldState.inputValue]
   )
 
   useEffect(() => {
@@ -200,7 +196,7 @@ const MultipleSelect = <T extends SelectedKey>({
               'has-[input[data-invalid=true]]:border-danger',
               'has-[input[focus=true]]:ring-ring/20 has-[input[focus=true]]:ring-4',
             ],
-            className,
+            className
           )}
         >
           <TagGroup
@@ -215,7 +211,7 @@ const MultipleSelect = <T extends SelectedKey>({
               className={twMerge(
                 selectedItems.items.length !== 0 && 'px-1 py-1.5',
                 'gap-1.5 outline-hidden [&_.jdt3lr2x]:last:-mr-1',
-                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]',
+                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]'
               )}
             >
               {props.tag}
@@ -275,8 +271,7 @@ const MultipleSelect = <T extends SelectedKey>({
                     <Description className="block p-3">
                       {fieldState.inputValue ? (
                         <>
-                          No results found for:{' '}
-                          <strong className="text-fg font-medium">{fieldState.inputValue}</strong>
+                          No results found for: <strong className="text-fg font-medium">{fieldState.inputValue}</strong>
                         </>
                       ) : (
                         'No options'
