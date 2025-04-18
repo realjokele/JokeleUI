@@ -3,6 +3,8 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
+import { ChevronDown, ChevronRight } from 'lucide-react'
+
 import { useFilter } from 'react-aria'
 import type { ComboBoxProps as ComboBoxPrimitiveProps, Key, ValidationResult } from 'react-aria-components'
 import { ComboBox } from 'react-aria-components'
@@ -17,7 +19,6 @@ import { PopoverContent } from './popover'
 import type { RestrictedIntent, TagGroupProps } from './tag-group'
 import { Tag, TagGroup, TagList } from './tag-group'
 import { VisuallyHidden } from './visually-hidden'
-import { Icon } from '../Icon'
 
 interface SelectedKey {
   id: Key
@@ -251,7 +252,7 @@ const MultipleSelect = <T extends SelectedKey>({
                   size="square-petite"
                   ref={triggerButtonRef}
                 >
-                  <Icon name="chevron-right" />
+                  <ChevronRight />
                 </Button>
               </VisuallyHidden>
             </div>
@@ -292,7 +293,7 @@ const MultipleSelect = <T extends SelectedKey>({
               onClick={() => triggerButtonRef.current?.click()}
               tabIndex={-1}
             >
-              <Icon name="chevron-down" className="peer/[data-open]:rotate-180 size-4" />
+              <ChevronDown className="peer/[data-open]:rotate-180 size-4" />
             </button>
           </div>
         </div>

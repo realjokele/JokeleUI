@@ -19,7 +19,7 @@ import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { ListBox } from './list-box'
 import { PopoverContent, type PopoverContentProps } from './popover'
 import { composeTailwindRenderProps } from './primitive'
-import { Icon } from '#/components/Icon'
+import { ChevronDown, X } from 'lucide-react'
 interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
   label?: string
   placeholder?: string
@@ -94,10 +94,7 @@ const ComboBoxInput = (props: InputProps) => {
         className="pressed:bg-transparent **:data-[slot=icon]:pressed:text-fg **:data-[slot=icon]:text-muted-fg **:data-[slot=icon]:hover:text-fg h-7 w-8 rounded outline-offset-0 hover:bg-transparent active:bg-transparent"
       >
         {!context?.inputValue && (
-          <Icon
-            name="chevron-down"
-            className="group-open:text-fg size-4 shrink-0 transition duration-200 group-open:rotate-180"
-          />
+          <ChevronDown className="group-open:text-fg size-4 shrink-0 transition duration-200 group-open:rotate-180" />
         )}
       </Button>
       {context?.inputValue && <ComboBoxClearButton />}
@@ -118,7 +115,7 @@ const ComboBoxClearButton = () => {
         state?.open()
       }}
     >
-      <Icon name="x" className="animate-in size-4" />
+      <X className="animate-in size-4" />
     </ButtonPrimitive>
   )
 }

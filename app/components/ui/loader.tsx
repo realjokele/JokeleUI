@@ -1,11 +1,12 @@
 // Changelog:
 // - 2025-03-29: Initial implementation
 
+import { Loader as LoaderIcon } from 'lucide-react'
+
 import { ProgressBar } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
-import { Icon } from '#/components/Icon'
 
 const loaderStyles = tv({
   base: 'relative',
@@ -134,7 +135,7 @@ const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
     </rect>
   </svg>
 )
-const Ring = (props: Omit<React.SVGProps<SVGSVGElement>, 'name'>) => <Icon name="loader" {...props} />
+const Ring = (props: Omit<React.SVGProps<SVGSVGElement>, 'name'>) => <LoaderIcon {...props} />
 const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg className={twMerge('size-4', className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
     <g strokeWidth="200" strokeLinecap="round" fill="none">

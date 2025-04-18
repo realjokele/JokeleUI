@@ -13,8 +13,10 @@ import {
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
+import { Check } from 'lucide-react'
+
 import { Keyboard } from './keyboard'
-import { Icon } from '../Icon'
 
 const dropdownItemStyles = tv({
   base: [
@@ -80,7 +82,7 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          {isSelected && <Icon name="check" className="-mx-0.5 mr-2" data-slot="checked-icon" />}
+          {isSelected && <Check className="-mx-0.5 mr-2" data-slot="checked-icon" />}
           {typeof children === 'string' ? <DropdownLabel>{children}</DropdownLabel> : children}
         </>
       ))}

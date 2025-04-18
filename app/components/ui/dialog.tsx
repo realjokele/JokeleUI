@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react'
 import type { HeadingProps } from 'react-aria-components'
 import { Button as ButtonPrimitive, Dialog as DialogPrimitive, Heading, Text } from 'react-aria-components'
 
+import { X } from 'lucide-react'
+
 import { composeTailwindRenderProps } from '#/components/ui/primitive'
 import { useMediaQuery } from '#/hooks/use-media-query'
 import { twJoin, twMerge } from 'tailwind-merge'
 import { Button, type ButtonProps } from './button'
-import { Icon } from '../Icon'
-
 const Dialog = ({ role = 'dialog', className, ...props }: React.ComponentProps<typeof DialogPrimitive>) => {
   return (
     <DialogPrimitive
@@ -169,7 +169,7 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
         'close hover:bg-secondary focus:bg-secondary focus-visible:ring-primary absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl focus:outline-hidden focus-visible:ring-1 sm:top-2 sm:right-2 sm:size-7 sm:rounded-md'
       )}
     >
-      <Icon name="x" className="size-4" />
+      <X className="size-4" />
     </ButtonPrimitive>
   ) : null
 }

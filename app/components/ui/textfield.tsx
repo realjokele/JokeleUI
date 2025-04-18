@@ -3,13 +3,14 @@
 
 import { useState } from 'react'
 
+import { Eye, EyeOff } from 'lucide-react'
+
 import { Button as ButtonPrimitive, TextField as TextFieldPrimitive } from 'react-aria-components'
 import type { InputProps, TextFieldProps as TextFieldPrimitiveProps } from 'react-aria-components'
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { Loader } from './loader'
 import { composeTailwindRenderProps } from './primitive'
-import { Icon } from '../Icon'
 
 type InputType = Exclude<InputProps['type'], 'password'>
 
@@ -73,7 +74,7 @@ const TextField = ({
                 onPress={handleTogglePasswordVisibility}
                 className="*:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden"
               >
-                {isPasswordVisible ? <Icon name="eye-off" /> : <Icon name="eye" />}
+                {isPasswordVisible ? <EyeOff /> : <Eye />}
               </ButtonPrimitive>
             ) : isPending ? (
               <Loader variant="spin" />

@@ -7,6 +7,9 @@ import type {
   SelectProps as SelectPrimitiveProps,
   ValidationResult,
 } from 'react-aria-components'
+
+import { ChevronDown } from 'lucide-react'
+
 import { Button, Select as SelectPrimitive, SelectValue, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { DropdownItem, DropdownItemDetails, DropdownLabel, DropdownSection, DropdownSeparator } from './dropdown'
@@ -14,7 +17,6 @@ import { Description, FieldError, Label } from './field'
 import { ListBox } from './list-box'
 import { PopoverContent, type PopoverContentProps } from './popover'
 import { composeTailwindRenderProps, focusStyles } from './primitive'
-import { Icon } from '../Icon'
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
@@ -110,8 +112,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
         data-slot="select-value"
         className="data-placeholder:text-muted-fg grid flex-1 grid-cols-[auto_1fr] items-center text-base *:data-[slot=avatar]:*:-mx-0.5 *:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:*:mr-2 *:data-[slot=avatar]:mr-2 *:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:mr-2 sm:text-sm [&_[slot=description]]:hidden"
       />
-      <Icon
-        name="chevron-down"
+      <ChevronDown
         aria-hidden
         className="text-muted-fg group-data-open:text-fg size-4 shrink-0 duration-300 group-disabled:opacity-50 group-data-open:rotate-180 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
       />

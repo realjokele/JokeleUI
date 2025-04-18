@@ -3,6 +3,8 @@
 
 import React from 'react'
 
+import { X } from 'lucide-react'
+
 import type {
   TagGroupProps as TagGroupPrimitiveProps,
   TagListProps,
@@ -20,7 +22,6 @@ import { tv } from 'tailwind-variants'
 import { badgeIntents, badgeShapes, badgeStyles } from './badge'
 import { Description, Label } from './field'
 import { composeTailwindRenderProps } from './primitive'
-import { Icon } from '../Icon'
 
 const intents = {
   primary: {
@@ -151,7 +152,7 @@ const Tag = ({ className, intent, shape, ...props }: TagProps) => {
                 slot="remove"
                 className="-mr-0.5 grid size-3.5 place-content-center rounded outline-hidden [&>[data-slot=icon]]:size-3 [&>[data-slot=icon]]:shrink-0"
               >
-                <Icon name="x" />
+                <X className="size-3" />
               </Button>
             )}
           </>

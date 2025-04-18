@@ -5,7 +5,7 @@ import { ListBox, ListBoxItem, ListBoxSection, Separator } from 'react-aria-comp
 import { composeTailwindRenderProps } from '#/components/ui/primitive'
 import { twMerge } from 'tailwind-merge'
 import { buttonStyles } from './button'
-import { Icon } from '../Icon'
+import { ChevronFirst, ChevronLast, ChevronLeft, ChevronRight, Ellipsis } from 'lucide-react'
 
 type PaginationProps = React.ComponentProps<'nav'>
 const Pagination = ({ className, ref, ...props }: PaginationProps) => (
@@ -121,17 +121,17 @@ const PaginationItem = ({
           ...props,
         },
         <span aria-hidden className={twMerge('flex size-9 items-center justify-center', className)}>
-          <Icon name="ellipsis" />
+          <Ellipsis />
         </span>
       )
     case 'previous':
-      return renderPaginationIndicator(<Icon name="chevron-left" />)
+      return renderPaginationIndicator(<ChevronLeft />)
     case 'next':
-      return renderPaginationIndicator(<Icon name="chevron-right" />)
+      return renderPaginationIndicator(<ChevronRight />)
     case 'first':
-      return renderPaginationIndicator(<Icon name="chevron-first" />)
+      return renderPaginationIndicator(<ChevronFirst />)
     case 'last':
-      return renderPaginationIndicator(<Icon name="chevron-last" />)
+      return renderPaginationIndicator(<ChevronLast />)
     default:
       return renderListItem(
         {

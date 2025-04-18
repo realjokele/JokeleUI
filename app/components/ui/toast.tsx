@@ -2,8 +2,9 @@ import * as React from 'react'
 import { useToastRegion, useToast, type AriaToastRegionProps, type AriaToastProps } from '@react-aria/toast'
 import { type ToastState, ToastQueue, useToastQueue } from '@react-stately/toast'
 
+import { CircleCheckBig, X } from 'lucide-react'
+
 import { Button } from './button'
-import { Icon } from '../Icon'
 
 interface MyToast {
   title: string
@@ -61,7 +62,7 @@ function Toast({ state, ...props }: ToastProps) {
       <div className="p-4">
         <div className="flex items-start">
           <div className="flex-shrink-0">
-            <Icon name="circle-check-big" className="h-6 w-6 text-green-400"></Icon>
+            <CircleCheckBig className="h-6 w-6 text-green-400" />
           </div>
           <div className="ml-3 flex-1 pt-0.5">
             <p {...titleProps} className="text-sm font-medium text-gray-900">
@@ -76,7 +77,7 @@ function Toast({ state, ...props }: ToastProps) {
               className="absolute top-0 right-0 inline-flex rounded-md border-0 bg-white text-gray-400 hover:text-gray-500"
             >
               <span className="sr-only">Close</span>
-              <Icon name="x" className="h-5 w-5" />
+              <X className="h-5 w-5" />
             </Button>
           </div>
         </div>

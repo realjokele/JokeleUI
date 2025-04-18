@@ -2,6 +2,7 @@
 // - 2025-03-29: Initial implementation
 
 import { createContext, use } from 'react'
+import { Check, ChevronRight } from 'lucide-react'
 
 import type {
   ButtonProps,
@@ -34,7 +35,6 @@ import {
 } from './dropdown'
 import { PopoverContent } from './popover'
 import { composeTailwindRenderProps } from './primitive'
-import { Icon } from '../Icon'
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -164,18 +164,18 @@ const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemP
                   data-slot="bullet-icon"
                   className="-mx-0.5 mr-2 flex size-4 shrink-0 items-center justify-center **:data-[slot=indicator]:size-2.5 **:data-[slot=indicator]:shrink-0"
                 >
-                  <Icon name="check" data-slot="indicator" />
+                  <Check className="size-2.5" data-slot="indicator" />
                 </span>
               )}
               {values.selectionMode === 'multiple' && (
-                <Icon name="check" className="-mx-0.5 mr-2 size-4" data-slot="checked-icon" />
+                <Check className="-mx-0.5 mr-2 size-4" data-slot="checked-icon" />
               )}
             </>
           )}
 
           {typeof children === 'function' ? children(values) : children}
 
-          {values.hasSubmenu && <Icon name="chevron-right" data-slot="chevron" className="absolute right-2 size-3.5" />}
+          {values.hasSubmenu && <ChevronRight data-slot="chevron" className="absolute right-2 size-3.5" />}
         </>
       )}
     </MenuItemPrimitive>
