@@ -1,7 +1,7 @@
 // Changelog:
 // - 2025-03-29: Initial implementation
 
-import { Loader as LoaderIcon } from 'lucide-react'
+import { LoaderIcon } from 'lucide-react'
 
 import { ProgressBar } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'

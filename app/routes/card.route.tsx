@@ -1,6 +1,6 @@
 import { Form } from 'react-router'
 
-import { ChevronDown } from 'lucide-react'
+import { ChevronDownIcon } from 'lucide-react'
 
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '#/components/ui/card'
 
@@ -105,7 +105,7 @@ export default function CardPage() {
             <CardAction>
               <Menu>
                 <Button size="small" intent="outline">
-                  Export... <ChevronDown />
+                  Export... <ChevronDownIcon />
                 </Button>
                 <Menu.Content placement="bottom end">
                   <Menu.Item>Export to PDF</Menu.Item>

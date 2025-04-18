@@ -3,7 +3,7 @@
 
 import React from 'react'
 
-import { X } from 'lucide-react'
+import { XIcon } from 'lucide-react'
 
 import type {
   TagGroupProps as TagGroupPrimitiveProps,
@@ -152,7 +152,7 @@ const Tag = ({ className, intent, shape, ...props }: TagProps) => {
                 slot="remove"
                 className="-mr-0.5 grid size-3.5 place-content-center rounded outline-hidden [&>[data-slot=icon]]:size-3 [&>[data-slot=icon]]:shrink-0"
               >
-                <X className="size-3" />
+                <XIcon className="size-3" />
               </Button>
             )}
           </>

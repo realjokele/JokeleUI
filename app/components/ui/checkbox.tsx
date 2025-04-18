@@ -11,7 +11,7 @@ import {
   composeRenderProps,
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import { Check, Minus } from 'lucide-react'
+import { CheckIcon, MinusIcon } from 'lucide-react'
 
 import { cn } from '#/utils/tw'
 import { Description, FieldError, Label } from './field'
@@ -85,7 +85,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
               isSelected: isSelected || isIndeterminate,
             })}
           >
-            {isIndeterminate ? <Minus /> : isSelected ? <Check /> : null}
+            {isIndeterminate ? <MinusIcon /> : isSelected ? <CheckIcon /> : null}
           </div>
 
           <div className="flex flex-col gap-1">

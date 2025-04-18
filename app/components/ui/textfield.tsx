@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 
-import { Eye, EyeOff } from 'lucide-react'
+import { EyeIcon, EyeOffIcon } from 'lucide-react'
 
 import { Button as ButtonPrimitive, TextField as TextFieldPrimitive } from 'react-aria-components'
 import type { InputProps, TextFieldProps as TextFieldPrimitiveProps } from 'react-aria-components'
@@ -74,7 +74,7 @@ const TextField = ({
                 onPress={handleTogglePasswordVisibility}
                 className="*:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden"
               >
-                {isPasswordVisible ? <EyeOff /> : <Eye />}
+                {isPasswordVisible ? <EyeOffIcon /> : <EyeIcon />}
               </ButtonPrimitive>
             ) : isPending ? (
               <Loader variant="spin" />

@@ -14,7 +14,7 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Check } from 'lucide-react'
+import { CheckIcon } from 'lucide-react'
 
 import { Keyboard } from './keyboard'
 
@@ -82,7 +82,7 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          {isSelected && <Check className="-mx-0.5 mr-2" data-slot="checked-icon" />}
+          {isSelected && <CheckIcon className="-mx-0.5 mr-2" data-slot="checked-icon" />}
           {typeof children === 'string' ? <DropdownLabel>{children}</DropdownLabel> : children}
         </>
       ))}

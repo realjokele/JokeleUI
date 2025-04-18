@@ -9,7 +9,7 @@ import {
   composeRenderProps,
 } from 'react-aria-components'
 
-import { Check, Menu } from 'lucide-react'
+import { CheckIcon, MenuIcon } from 'lucide-react'
 
 import { composeTailwindRenderProps } from './primitive'
 import { twMerge } from 'tailwind-merge'
@@ -49,7 +49,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
         return (
           <>
             {allowsDragging && (
-              <Menu
+              <MenuIcon
                 className={twMerge(
                   'text-muted-fg size-4 shrink-0 transition',
                   isFocused && 'text-fg',
@@ -58,7 +58,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
                 )}
               />
             )}
-            {isSelected && <Check className="-mx-0.5 mr-2" data-slot="checked-icon" />}
+            {isSelected && <CheckIcon className="-mx-0.5 mr-2" data-slot="checked-icon" />}
             {typeof children === 'function' ? (
               children(renderProps)
             ) : typeof children === 'string' ? (

@@ -3,7 +3,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
-import { ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronDownIcon, ChevronRightIcon } from 'lucide-react'
 
 import { useFilter } from 'react-aria'
 import type { ComboBoxProps as ComboBoxPrimitiveProps, Key, ValidationResult } from 'react-aria-components'
@@ -252,7 +252,7 @@ const MultipleSelect = <T extends SelectedKey>({
                   size="square-petite"
                   ref={triggerButtonRef}
                 >
-                  <ChevronRight />
+                  <ChevronRightIcon />
                 </Button>
               </VisuallyHidden>
             </div>
@@ -293,7 +293,7 @@ const MultipleSelect = <T extends SelectedKey>({
               onClick={() => triggerButtonRef.current?.click()}
               tabIndex={-1}
             >
-              <ChevronDown className="peer/[data-open]:rotate-180 size-4" />
+              <ChevronDownIcon className="peer/[data-open]:rotate-180 size-4" />
             </button>
           </div>
         </div>
