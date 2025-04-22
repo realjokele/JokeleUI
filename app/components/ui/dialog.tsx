@@ -132,7 +132,7 @@ const Footer = ({ className, ...props }: DialogFooterProps) => {
       ref={footerRef}
       data-slot="dialog-footer"
       className={twMerge(
-        'isolate mt-auto flex flex-col-reverse justify-between gap-3 p-4 pt-3 sm:flex-row sm:p-6 sm:pt-5',
+        'isolate mt-auto flex flex-col justify-start gap-3 p-4 pt-3 sm:flex-row sm:p-6 sm:pt-5',
         className
       )}
       {...props}

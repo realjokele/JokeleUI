@@ -25,7 +25,7 @@ const buttonStyles = tv({
       ],
       secondary: [
         'outline-primary [--btn-bg:theme(--color-button-secondary)] [--btn-fg:var(--color-button-secondary-fg)] [--btn-overlay:theme(--color-button-secondary/90%)]',
-        '[--inset-ring:theme(--color-button-secondary-fg)] [--btn-hovered-bg:theme(--color-button-secondary-fg/4%)]',
+        '[--inset-ring:theme(--color-button-secondary)] [--btn-hovered-bg:theme(--color-button-secondary-fg/4%)]',
       ],
       warning: [
         'outline-warning [--btn-bg:theme(--color-warning)] [--btn-fg:var(--color-warning-fg)] [--btn-overlay:theme(--color-warning/85%)]',
@@ -39,9 +39,11 @@ const buttonStyles = tv({
       ],
       'secondary-danger': [
         'outline-primary [--btn-bg:theme(--color-button-danger-secondary)] [--btn-fg:var(--color-button-danger-secondary-fg)] [--btn-overlay:theme(--color-button-danger-secondary/90%)]',
-        '[--inset-ring:theme(--color-button-danger-secondary-fg)] [--btn-hovered-bg:theme(--color-button-danger-secondary-fg/4%)]',
+        '[--inset-ring:theme(--color-button-danger-secondary)] [--btn-hovered-bg:theme(--color-button-danger-secondary/70%)]',
       ],
-      outline: ['outline-primary hovered:ring-primary/20 shadow-none [--btn-fg:var(--color-fg)]'],
+      outline: [
+        'outline-primary hovered:ring-primary/20 shadow-none [--btn-fg:var(--color-fg)] [--inset-ring:theme(--color-fg/20%)] ',
+      ],
       plain: [
         'outline-primary [--btn-overlay:theme(--color-secondary/90%)] shadow-none inset-ring-transparent [--btn-fg:var(--color-fg)] dark:inset-ring-transparent',
       ],

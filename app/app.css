@@ -21,13 +21,10 @@
   --color-secondary-fg: var(--secondary-fg);
 
   --color-button-secondary: var(--secondary);
-  --color-button-secondary-fg: var(--primary);
+  --color-button-secondary-fg: var(--secondary-fg);
 
   --color-button-warning-secondary: var(--secondary);
   --color-button-warning-secondary-fg: var(--fg);
-
-  --color-button-danger-secondary: var(--secondary);
-  --color-button-danger-secondary-fg: var(--fg);
 
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
@@ -37,6 +34,9 @@
 
   --color-danger: var(--danger);
   --color-danger-fg: var(--danger-fg);
+
+  --color-button-danger-secondary: var(--secondary);
+  --color-button-danger-secondary-fg: var(--color-secondary-fg);
 
   --color-warning: var(--warning);
   --color-warning-fg: var(--warning-fg);
@@ -62,7 +62,7 @@
 
 @layer base {
   :root {
-    --desktop: #eeeeef;
+    --desktop: oklch(0.985 0 0);
 
     --bg: oklch(0.985 0 0);
     --fg: oklch(0.141 0.005 285.823);
@@ -70,8 +70,8 @@
     --primary: oklch(0.546 0.245 262.881);
     --primary-fg: oklch(1 0 0);
 
-    --secondary: oklch(0.985 0 0);
-    --secondary-fg: oklch(0.141 0.005 285.823);
+    --secondary: oklch(0.92 0.007 268.55);
+    --secondary-fg: oklch(0.39 0.0064 243.03);
 
     --overlay: oklch(1 0 0);
     --overlay-fg: oklch(0.141 0.005 285.823);
@@ -88,7 +88,7 @@
     --warning: oklch(0.828 0.189 84.429);
     --warning-fg: oklch(0.279 0.077 45.635);
 
-    --danger: oklch(0.577 0.245 27.325);
+    --danger: oklch(0.6 0.1947 24.04);
     --danger-fg: oklch(0.971 0.013 17.38);
 
     --border: oklch(0.92 0.004 286.32);
@@ -107,7 +107,7 @@
     --chart-4: oklch(0.882 0.059 254.128);
     --chart-5: oklch(0.932 0.032 255.585);
 
-    --radius-lg: 0.25rem;
+    --radius-lg: 0.5rem;
     --radius-xs: calc(var(--radius-lg) * 0.5);
     --radius-sm: calc(var(--radius-lg) * 0.75);
     --radius-md: calc(var(--radius-lg) * 0.9);
